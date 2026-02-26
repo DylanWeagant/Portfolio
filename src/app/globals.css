@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+/* Class-based dark mode for toggle support */
+@variant dark (&:where(.dark, .dark *));
+
+/* ── Light theme ─────────────────────────────── */
+:root {
+  --bg:        #ffffff;
+  --bg-2:      #f5f5f5;
+  --text:      #0f0f0f;
+  --muted:     #6b7280;
+  --border:    #e5e7eb;
+  --accent:    #0891b2;
+  --card:      #ffffff;
+  --card-hover:#f9fafb;
+}
+
+/* ── Dark theme ──────────────────────────────── */
+.dark {
+  --bg:        #0a0a0a;
+  --bg-2:      #111111;
+  --text:      #f0f0f0;
+  --muted:     #9ca3af;
+  --border:    #252525;
+  --accent:    #22d3ee;
+  --card:      #141414;
+  --card-hover:#1c1c1c;
+}
+
+/* ── Base ────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+::selection {
+  background-color: var(--accent);
+  color: #fff;
+}
+
+/* ── Hover utilities (CSS-variable-aware) ─── */
+.hover-accent:hover          { color: var(--accent); }
+.hover-border-accent:hover   { border-color: var(--accent); }
+.hover-text:hover            { color: var(--text); }
